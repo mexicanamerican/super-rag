@@ -1,14 +1,18 @@
 from pydantic import BaseModel
 
-from models.ingest import EncoderEnum
+from models.ingest import Encoder
 from models.vector_database import VectorDatabase
+
+
+class File(BaseModel):
+    url: str
 
 
 class RequestPayload(BaseModel):
     index_name: str
-    file_url: str
+    files: list[File]
     vector_database: VectorDatabase
-    encoder: EncoderEnum
+    encoder: Encoder
 
 
 class DeleteResponse(BaseModel):
