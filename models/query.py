@@ -12,12 +12,14 @@ class RequestPayload(BaseModel):
     index_name: str
     encoder: Encoder
     session_id: Optional[str] = None
+    interpreter_mode: Optional[bool] = False
 
 
 class ResponseData(BaseModel):
     content: str
     doc_url: str
     page_number: Optional[int]
+    metadata: Optional[dict] = None
 
 
 class ResponsePayload(BaseModel):
